@@ -12,16 +12,23 @@ namespace Sorteio
         {
             //Cria o random com uma seed sendo os segundos atuais
             Random random = new Random(DateTime.Now.Second);
-            
-            List <Participante> participantes = new List<Participante>();
-            participantes.Add(new Participante("Ze", "11223344556"));
-            participantes.Add(new Participante("Re", "99885533221"));
-            participantes.Add(new Participante("Te", "55667788990"));
 
-            Menu(participantes, random);
+            //Cria um sorteio
+            Sorteio sorteio = new Sorteio("Teste");
+
+            if (Escriba.CriarTxt(sorteio.nome) == false) //Não preciso cria o txt, logo existe participantes aramzenados
+            {
+                List<string> particpantes = Escriba.CarregaParticipantes(sorteio.nome);
+                foreach(string p in particpantes)
+                {
+                    string[] participante = p.Split(',');
+                    sorteio.AdicionarParaticipante(participante[0], participante[1].Trim());
+                }
+            }
+            Menu(random, sorteio);
         }
 
-        private static void Menu(List<Participante> participantes, Random random)
+        private static void Menu(Random random, Sorteio sorteio)
         {
             int op;
 
@@ -43,81 +50,66 @@ namespace Sorteio
                 {
                     //Adciona um novo participante
                     case 1:
-                        AdicionarParaticipante(participantes);
+                        AdicionarParticipante(sorteio);
                         break;
                     //Remove um participante
                     case 2:
-                        RemoveParticipante(participantes);
+                        RemoveParticipante(sorteio);
                         break;
                     //Mostra os participantes
                     case 3:
-                        ListarParticipantes(participantes);
+                        Console.WriteLine("--Particpantes--");
+                        sorteio.ListarParticipantes();
+                        Proceguir();
                         break;
                     //Efetua o sorteio
                     case 4:
-                        EfetuarSorteio(participantes, random);
+                        EfetuarSorteio(sorteio, random);
                         break;
                 }
 
             } while (op != 0);
-
+            Escriba.SalvarParticipante(sorteio);
             return;
         }
 
-        private static void EfetuarSorteio(List<Participante> participantes, Random random)
+        private static void RemoveParticipante(Sorteio sorteio)
         {
-            int numSorteio = random.Next(participantes.Count());
-            Console.WriteLine("O sorteado foi:");
-            Console.WriteLine(participantes.ElementAt(numSorteio));
-
-            Console.WriteLine("===================================");
-            Console.WriteLine("Aperte Enter para voltar ao menu...");
-            Console.ReadLine();
-            Console.Clear();
-        }
-
-        private static void ListarParticipantes(List<Participante> participantes)
-        {
-            foreach(Participante p in participantes)
-            {
-                Console.WriteLine(p);
-            }
-
-            Console.WriteLine("===================================");
-            Console.WriteLine("Aperte Enter para voltar ao menu...");
-            Console.ReadLine();
-            Console.Clear();
-        }
-
-        private static void AdicionarParaticipante(List<Participante> participantes)
-        {
-            Console.Write("Entre com o nome do participante: ");
-            string nome = Console.ReadLine();
-            Console.Write("Entre com o numero do participante: ");
-            string contato = Console.ReadLine();
-
-            participantes.Add(new Participante(nome, contato));
-
-            Console.WriteLine("===================================");
-            Console.WriteLine("Aperte Enter para voltar ao menu...");
-            Console.ReadLine();
-            Console.Clear();
-        }
-
-        private static void RemoveParticipante(List<Participante> participantes)
-        {
+            Console.WriteLine("--Remover Participante--");
             Console.Write("Entre com o nome a ser removido: ");
             string nome = Console.ReadLine();
+            sorteio.RemoveParticipante(nome);
+            Proceguir();
+        }
 
-            foreach(Participante p in participantes)
-            {
-                if(string.Equals(p.nome, nome))
-                {
-                    //acho o cara e remove
-                    participantes.Remove(p);
-                    return;
-                }
-            }
+        private static void AdicionarParticipante(Sorteio sorteio)
+        {
+            Console.WriteLine("--Cadastrar um novo participante--");
+            Console.Write("Entre com o nome do novo participante: ");
+            string nome = Console.ReadLine();
+            Console.Write("Entre com o contato do participante: ");
+            string contato = Console.ReadLine();
+
+            sorteio.AdicionarParaticipante(nome, contato);
+
+            Proceguir();
+        }
+
+        private static void EfetuarSorteio(Sorteio sorteio, Random random)
+        {
+            int qtdParticipantes = sorteio.participantes.Count();
+            int posSorteada = random.Next(qtdParticipantes);
+            Console.WriteLine("--Sorteio--");
+            sorteio.EfetuarSorteio(posSorteada);
+            Proceguir();
+        }
+
+        private static void Proceguir()
+        {
+            Console.WriteLine("======================");
+            Console.WriteLine("Aperte Enter para continuar...");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
