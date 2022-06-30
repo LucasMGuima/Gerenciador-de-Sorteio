@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Escriba.cs" />
+    <Compile Include="GerenciadorSorteios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GerenciadorSorteios.Designer.cs">
+      <DependentUpon>GerenciadorSorteios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Participante.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +64,10 @@
     <Content Include="Participantes\Teste.txt" />
     <Content Include="Sorteios\sorteios.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="GerenciadorSorteios.resx">
+      <DependentUpon>GerenciadorSorteios.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

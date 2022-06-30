@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 //TODO:
 // [x] Poder ocorrer mais de um sorteio por vez
@@ -15,10 +16,13 @@ namespace Sorteio
     {
         static void Main(string[] args)
         {
-            //Lista de sorteios existentes
-            List<Sorteio> sorteios = new List<Sorteio>();
-            Escriba.CarregarSorteios(sorteios);
-            Menu(sorteios);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new GerenciadorSorteios());
+            ////Lista de sorteios existentes
+            //List<Sorteio> sorteios = new List<Sorteio>();
+            //Escriba.CarregarSorteios(sorteios);
+            //Menu(sorteios);
         }
 
         private static void Menu(List<Sorteio> sorteios)
