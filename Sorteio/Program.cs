@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 //TODO:
 // [x] Poder ocorrer mais de um sorteio por vez
 // [] Interface gráfica
-// [] Tratamento de erros
+// [x] Tratamento de erros
 
 namespace Sorteio
 {
