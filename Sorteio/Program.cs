@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//TODO:
+// [] Poder ocorrer mais de um sorteio por vez
+// [] Interface gráfica
+
 namespace Sorteio
 {
     internal class Program
@@ -14,7 +18,7 @@ namespace Sorteio
             Random random = new Random(DateTime.Now.Second);
 
             //Cria um sorteio
-            Sorteio sorteio = new Sorteio("Teste");
+            Sorteio sorteio = new Sorteio("Teste2");
 
             if (Escriba.CriarTxt(sorteio.nome) == false) //Não preciso cria o txt, logo existe participantes aramzenados
             {
@@ -34,7 +38,7 @@ namespace Sorteio
 
             do
             {
-                Console.WriteLine("MVP - Sorteio");
+                Console.WriteLine($"Sorteio {sorteio.nome}");
                 Console.WriteLine("Escolha uma opcao");
                 Console.WriteLine("1 - Adcionar participante");
                 Console.WriteLine("2 - Remover participante");
