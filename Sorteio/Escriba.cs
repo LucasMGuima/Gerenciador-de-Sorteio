@@ -29,7 +29,11 @@ namespace Sorteio
                 return true;
             }
         }
-
+        /// <summary>
+        /// Le e carrega os participantes do sortei.
+        /// </summary>
+        /// <param name="nomeSorteio">Nome do sorteio</param>
+        /// <returns>Lista de strings das linhas do txt</returns>
         public static List<string> CarregaParticipantes(string nomeSorteio)
         {
             List<string> participantes = new List<string>();
@@ -49,6 +53,10 @@ namespace Sorteio
             return participantes;
         }
 
+        /// <summary>
+        /// Salva os participantes do sorteio no arquivo correspondente.
+        /// </summary>
+        /// <param name="sorteio">Sorteio a ser salvo</param>
         public static void SalvarParticipante(Sorteio sorteio)
         {
             string filePath = $"C:..\\..\\Participantes\\{sorteio.nome}.txt";
@@ -56,6 +64,44 @@ namespace Sorteio
             foreach(Participante p in sorteio.participantes)
             {
                 arquivo.WriteLine(p.nome + "," + p.contato);
+            }
+            arquivo.Close();
+        }
+
+        /// <summary>
+        /// Carrega os sorteios guardados para dentro do programa.
+        /// </summary>
+        /// <param name="sorteios">Lista dos sorteios</param>
+        public static void CarregarSorteios(List<Sorteio> sorteios)
+        {
+            string filePath = $"C:..\\..\\Sorteios\\sorteios.txt";
+            if (File.Exists(filePath))
+            {
+                StreamReader arquivo = new StreamReader(filePath);
+                string linha;
+                while((linha = arquivo.ReadLine()) != null)
+                {
+                    Sorteio sorteio = new Sorteio(linha.Trim());
+                }
+                arquivo.Close();
+            }
+            else
+            {
+                File.Create(filePath);
+            }
+        }
+
+        /// <summary>
+        /// Salva os sorteios.
+        /// </summary>
+        /// <param name="sorteios">Lista dos sorteios</param>
+        public static void SalvarSorteios(List<Sorteio> sorteios)
+        {
+            string filePath = $"C:..\\..\\Sorteios\\sorteios.txt";
+            StreamWriter arquivo = new StreamWriter(filePath);
+            foreach (Sorteio sorteio in sorteios)
+            {
+                arquivo.WriteLine(sorteio.nome);
             }
             arquivo.Close();
         }
