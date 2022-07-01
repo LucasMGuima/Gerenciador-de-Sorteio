@@ -38,8 +38,15 @@ namespace Sorteio
         {
             List<string> participantes = new List<string>();
             string filePath = $"C:..\\..\\Participantes\\{nomeSorteio}.txt";
-            StreamReader arquivo = new StreamReader(filePath);
-            
+            StreamReader arquivo;
+            try
+            {
+                arquivo = new StreamReader(filePath);
+            }catch(IOException e)
+            {
+                CriarTxt(nomeSorteio);
+                arquivo = new StreamReader(filePath);
+            }
             string linha;
             while((linha = arquivo.ReadLine()) != null)
             {
@@ -82,6 +89,7 @@ namespace Sorteio
                 while((linha = arquivo.ReadLine()) != null)
                 {
                     Sorteio sorteio = new Sorteio(linha.Trim());
+                    sorteios.Add(sorteio);
                 }
                 arquivo.Close();
             }
