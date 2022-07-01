@@ -78,6 +78,7 @@
             this.btnConfrimar.TabIndex = 4;
             this.btnConfrimar.Text = "Confirmar";
             this.btnConfrimar.UseVisualStyleBackColor = true;
+            this.btnConfrimar.Click += new System.EventHandler(this.btnConfrimar_Click);
             // 
             // NovoParticipante
             // 

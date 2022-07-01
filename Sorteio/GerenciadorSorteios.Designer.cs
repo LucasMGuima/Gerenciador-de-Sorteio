@@ -119,6 +119,7 @@
             this.btnAddParticipante.TabIndex = 3;
             this.btnAddParticipante.Text = "Adicionar";
             this.btnAddParticipante.UseVisualStyleBackColor = true;
+            this.btnAddParticipante.Click += new System.EventHandler(this.btnAddParticipante_Click);
             // 
             // btnEfetuarSorteio
             // 
