@@ -34,11 +34,11 @@
             this.btnCarregarSorteio = new System.Windows.Forms.Button();
             this.btnDeletarSorteio = new System.Windows.Forms.Button();
             this.gpbSorteio = new System.Windows.Forms.GroupBox();
-            this.lstParticipantes = new System.Windows.Forms.ListBox();
-            this.lblParticipantes = new System.Windows.Forms.Label();
-            this.btnEfetuarSorteio = new System.Windows.Forms.Button();
-            this.btnAddParticipante = new System.Windows.Forms.Button();
             this.btnRemoverParticipante = new System.Windows.Forms.Button();
+            this.btnAddParticipante = new System.Windows.Forms.Button();
+            this.btnEfetuarSorteio = new System.Windows.Forms.Button();
+            this.lblParticipantes = new System.Windows.Forms.Label();
+            this.lstParticipantes = new System.Windows.Forms.ListBox();
             this.gpbSorteio.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,7 @@
             this.btnCarregarSorteio.TabIndex = 3;
             this.btnCarregarSorteio.Text = "Carregar";
             this.btnCarregarSorteio.UseVisualStyleBackColor = true;
+            this.btnCarregarSorteio.Click += new System.EventHandler(this.btnCarregarSorteio_Click);
             // 
             // btnDeletarSorteio
             // 
@@ -101,31 +102,14 @@
             this.gpbSorteio.TabStop = false;
             this.gpbSorteio.Text = "Sorteio";
             // 
-            // lstParticipantes
+            // btnRemoverParticipante
             // 
-            this.lstParticipantes.FormattingEnabled = true;
-            this.lstParticipantes.Location = new System.Drawing.Point(6, 45);
-            this.lstParticipantes.Name = "lstParticipantes";
-            this.lstParticipantes.Size = new System.Drawing.Size(202, 303);
-            this.lstParticipantes.TabIndex = 0;
-            // 
-            // lblParticipantes
-            // 
-            this.lblParticipantes.AutoSize = true;
-            this.lblParticipantes.Location = new System.Drawing.Point(7, 26);
-            this.lblParticipantes.Name = "lblParticipantes";
-            this.lblParticipantes.Size = new System.Drawing.Size(71, 13);
-            this.lblParticipantes.TabIndex = 1;
-            this.lblParticipantes.Text = "Participantes:";
-            // 
-            // btnEfetuarSorteio
-            // 
-            this.btnEfetuarSorteio.Location = new System.Drawing.Point(214, 305);
-            this.btnEfetuarSorteio.Name = "btnEfetuarSorteio";
-            this.btnEfetuarSorteio.Size = new System.Drawing.Size(100, 41);
-            this.btnEfetuarSorteio.TabIndex = 2;
-            this.btnEfetuarSorteio.Text = "Efetuar Sorteio";
-            this.btnEfetuarSorteio.UseVisualStyleBackColor = true;
+            this.btnRemoverParticipante.Location = new System.Drawing.Point(215, 75);
+            this.btnRemoverParticipante.Name = "btnRemoverParticipante";
+            this.btnRemoverParticipante.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoverParticipante.TabIndex = 4;
+            this.btnRemoverParticipante.Text = "Remover";
+            this.btnRemoverParticipante.UseVisualStyleBackColor = true;
             // 
             // btnAddParticipante
             // 
@@ -136,14 +120,31 @@
             this.btnAddParticipante.Text = "Adicionar";
             this.btnAddParticipante.UseVisualStyleBackColor = true;
             // 
-            // btnRemoverParticipante
+            // btnEfetuarSorteio
             // 
-            this.btnRemoverParticipante.Location = new System.Drawing.Point(215, 75);
-            this.btnRemoverParticipante.Name = "btnRemoverParticipante";
-            this.btnRemoverParticipante.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoverParticipante.TabIndex = 4;
-            this.btnRemoverParticipante.Text = "Remover";
-            this.btnRemoverParticipante.UseVisualStyleBackColor = true;
+            this.btnEfetuarSorteio.Location = new System.Drawing.Point(214, 305);
+            this.btnEfetuarSorteio.Name = "btnEfetuarSorteio";
+            this.btnEfetuarSorteio.Size = new System.Drawing.Size(100, 41);
+            this.btnEfetuarSorteio.TabIndex = 2;
+            this.btnEfetuarSorteio.Text = "Efetuar Sorteio";
+            this.btnEfetuarSorteio.UseVisualStyleBackColor = true;
+            // 
+            // lblParticipantes
+            // 
+            this.lblParticipantes.AutoSize = true;
+            this.lblParticipantes.Location = new System.Drawing.Point(7, 26);
+            this.lblParticipantes.Name = "lblParticipantes";
+            this.lblParticipantes.Size = new System.Drawing.Size(71, 13);
+            this.lblParticipantes.TabIndex = 1;
+            this.lblParticipantes.Text = "Participantes:";
+            // 
+            // lstParticipantes
+            // 
+            this.lstParticipantes.FormattingEnabled = true;
+            this.lstParticipantes.Location = new System.Drawing.Point(6, 45);
+            this.lstParticipantes.Name = "lstParticipantes";
+            this.lstParticipantes.Size = new System.Drawing.Size(202, 303);
+            this.lstParticipantes.TabIndex = 0;
             // 
             // GerenciadorSorteios
             // 

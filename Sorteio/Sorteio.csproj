@@ -45,12 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CriarSorteio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriarSorteio.Designer.cs">
+      <DependentUpon>CriarSorteio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Escriba.cs" />
     <Compile Include="GerenciadorSorteios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GerenciadorSorteios.Designer.cs">
       <DependentUpon>GerenciadorSorteios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NovoParticipante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovoParticipante.Designer.cs">
+      <DependentUpon>NovoParticipante.cs</DependentUpon>
     </Compile>
     <Compile Include="Participante.cs" />
     <Compile Include="Program.cs" />
@@ -65,8 +77,14 @@
     <Content Include="Sorteios\sorteios.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CriarSorteio.resx">
+      <DependentUpon>CriarSorteio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GerenciadorSorteios.resx">
       <DependentUpon>GerenciadorSorteios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovoParticipante.resx">
+      <DependentUpon>NovoParticipante.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
