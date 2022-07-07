@@ -71,9 +71,26 @@ namespace Sorteio
             if(novoParticipante.nome != null && novoParticipante.contato != null)
             {
                 this.sorteio.AdicionarParaticipante(novoParticipante.nome, novoParticipante.contato);
+                Escriba.SalvarParticipante(this.sorteio);
                 //recarrega a lista de participantes
                 btnCarregarSorteio_Click(sender, e);
             }
+            
+        }
+
+        private void btnRemoverParticipante_Click(object sender, EventArgs e)
+        {
+            int indSelecionado = lstParticipantes.SelectedIndex;
+            if (indSelecionado == -1) return;
+
+            this.sorteio.participantes.RemoveAt(indSelecionado);
+            Escriba.SalvarParticipante(this.sorteio);
+            btnCarregarSorteio_Click(sender, e);
+        }
+
+        private void cbbSorteios_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.sorteio = null;
         }
     }
 }

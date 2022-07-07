@@ -59,6 +59,7 @@
             this.cbbSorteios.Name = "cbbSorteios";
             this.cbbSorteios.Size = new System.Drawing.Size(236, 21);
             this.cbbSorteios.TabIndex = 1;
+            this.cbbSorteios.SelectedValueChanged += new System.EventHandler(this.cbbSorteios_SelectedValueChanged);
             // 
             // btnCrirarSorteio
             // 
@@ -110,6 +111,7 @@
             this.btnRemoverParticipante.TabIndex = 4;
             this.btnRemoverParticipante.Text = "Remover";
             this.btnRemoverParticipante.UseVisualStyleBackColor = true;
+            this.btnRemoverParticipante.Click += new System.EventHandler(this.btnRemoverParticipante_Click);
             // 
             // btnAddParticipante
             // 
