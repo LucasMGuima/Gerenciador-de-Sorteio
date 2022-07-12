@@ -28,6 +28,9 @@ namespace Sorteio
 
         private void CarregarSorteios()
         {
+            this.sorteios.Clear();
+            cbbSorteios.Items.Clear();
+
             Escriba.CarregarSorteios(this.sorteios);
             foreach (Sorteio sorteio in this.sorteios)
             {
@@ -91,6 +94,22 @@ namespace Sorteio
         private void cbbSorteios_SelectedValueChanged(object sender, EventArgs e)
         {
             this.sorteio = null;
+        }
+
+        private void btnCrirarSorteio_Click(object sender, EventArgs e)
+        {
+            CriarSorteio criarSorteio = new CriarSorteio();
+            criarSorteio.ShowDialog();
+
+            Sorteio novoSorteio = new Sorteio(criarSorteio.nome);
+            this.sorteios.Add(novoSorteio);
+            Escriba.SalvarSorteios(this.sorteios);
+            CarregarSorteios();
+        }
+
+        private void btnDeletarSorteio_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }

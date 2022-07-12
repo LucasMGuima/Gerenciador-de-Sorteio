@@ -69,6 +69,7 @@
             this.btnCrirarSorteio.TabIndex = 2;
             this.btnCrirarSorteio.Text = "Criar Sorteio";
             this.btnCrirarSorteio.UseVisualStyleBackColor = true;
+            this.btnCrirarSorteio.Click += new System.EventHandler(this.btnCrirarSorteio_Click);
             // 
             // btnCarregarSorteio
             // 
@@ -88,6 +89,7 @@
             this.btnDeletarSorteio.TabIndex = 4;
             this.btnDeletarSorteio.Text = "Deletar";
             this.btnDeletarSorteio.UseVisualStyleBackColor = true;
+            this.btnDeletarSorteio.Click += new System.EventHandler(this.btnDeletarSorteio_Click);
             // 
             // gpbSorteio
             // 

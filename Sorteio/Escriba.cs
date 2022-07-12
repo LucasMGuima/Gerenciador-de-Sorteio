@@ -113,5 +113,15 @@ namespace Sorteio
             }
             arquivo.Close();
         }
+
+        ///<summary>
+        /// Remove um sorteio da lista de sorteios.
+        /// </summary>
+        /// <param name="sroteio">Nome do sorteio a ser removido</param>
+        public static void RemoverSorteio(string nome)
+        {
+            string filePath = $"C:..\\..\\Sorteios\\sorteios.txt";
+            //TODO
+        }
     }
 }
