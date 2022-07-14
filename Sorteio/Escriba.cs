@@ -121,7 +121,28 @@ namespace Sorteio
         public static void RemoverSorteio(string nome)
         {
             string filePath = $"C:..\\..\\Sorteios\\sorteios.txt";
-            //TODO
+            StreamReader lerArquivo = new StreamReader(filePath);
+
+            List<string> linhasArquivo = new List<string>();
+            //le o arquivo
+            string linha;
+            while ((linha = lerArquivo.ReadLine()) != null)
+            {
+                if(linha.Equals(nome) == false)
+                {
+                    linhasArquivo.Add(linha);
+                }
+            }
+
+            lerArquivo.Close();
+
+            StreamWriter escArquivo = new StreamWriter(filePath);
+
+            foreach(string novaLinha in linhasArquivo)
+            {
+                escArquivo.WriteLine(novaLinha);
+            }
+            escArquivo.Close();
         }
     }
 }

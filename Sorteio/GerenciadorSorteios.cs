@@ -110,6 +110,11 @@ namespace Sorteio
         private void btnDeletarSorteio_Click(object sender, EventArgs e)
         {
             //TODO
+            RemoverSorteio removerSorteio = new RemoverSorteio();
+            removerSorteio.ShowDialog();
+
+            Escriba.RemoverSorteio(removerSorteio.nome);
+            CarregarSorteios();
         }
     }
 }
