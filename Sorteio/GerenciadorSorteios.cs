@@ -109,12 +109,25 @@ namespace Sorteio
 
         private void btnDeletarSorteio_Click(object sender, EventArgs e)
         {
-            //TODO
             RemoverSorteio removerSorteio = new RemoverSorteio();
             removerSorteio.ShowDialog();
 
             Escriba.RemoverSorteio(removerSorteio.nome);
             CarregarSorteios();
+        }
+
+        private void btnEfetuarSorteio_Click(object sender, EventArgs e)
+        {
+            if(lstParticipantes.Items.Count <= 0)
+            {
+                //Não tem participantes
+                return;
+            }
+
+            Random rand = new Random(DateTime.Now.Second);
+
+            Participante ganhador = sorteio.RetornarSorteado(rand.Next(sorteio.participantes.Count));
+            MessageBox.Show($"O ganhador foir: {ganhador.nome.ToUpper()} \nContato: {ganhador.contato}", "GANHADOR");
         }
     }
 }

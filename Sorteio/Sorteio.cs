@@ -30,6 +30,17 @@ namespace Sorteio
             Console.WriteLine(this.participantes.ElementAt(valorSorteado));
         }
         /// <summary>
+        /// Encontra e retorna o participante na posição sorteada.
+        /// </summary>
+        /// <param name="valorSorteado">Valor que representa a posição sorteada</param>
+        /// <returns>Um elemento do tipo Participante, que representa o participante ganhador.</returns>
+        public Participante RetornarSorteado(int valorSorteado)
+        {
+            Participante ganhador;
+            ganhador = this.participantes.ElementAt(valorSorteado);
+            return ganhador;
+        }
+        /// <summary>
         /// Imprime na tela todos os participantes cadastrados do sorteio, e seus contatos.
         /// </summary>
         public void ListarParticipantes()

@@ -133,6 +133,7 @@
             this.btnEfetuarSorteio.TabIndex = 2;
             this.btnEfetuarSorteio.Text = "Efetuar Sorteio";
             this.btnEfetuarSorteio.UseVisualStyleBackColor = true;
+            this.btnEfetuarSorteio.Click += new System.EventHandler(this.btnEfetuarSorteio_Click);
             // 
             // lblParticipantes
             // 
